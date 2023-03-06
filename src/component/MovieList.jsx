@@ -4,7 +4,7 @@ import MovieCard from './MovieCard';
 export default function MovieList ({data}) {
 
 return(
-<div>
+<div style = { {display:'flex',flexDirection:'row'}}>
 
 
 

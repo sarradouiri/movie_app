@@ -1,23 +1,21 @@
-import { useState } from 'react';
-import{List} from './assets/Data';
-import Filter from './component/Filter';
-import MovieList from './component/MovieList';
+import React from 'react';
+import Home from './component/Home';
+import MovieRoute from './component/MovieRoute';
+import {Routes, Route , Link ,BrowserRouter } from 'react-router-dom';
 
+export default function App() {
+  
+return(
 
-function App() {
-const [movies,setMovies]=useState(List)
-const [searchWord , setSearchWord]=useState('')
+  <BrowserRouter>
+  <Link to='/'> Home</Link>
+  <Routes>
+        <Route exact path="/" element={<Home/>}/>
+        <Route exact path="/:id" element={<MovieRoute/>} />
 
-  return (
-    
-    <div>     
-    <MovieList data={List}/></div>
+      </Routes>
+  </BrowserRouter>
+)
 
-<div>
-<Search setSearchWord={setSearchWord}  />
- <Filter MovieList= {searchWord ? List.filter(e=>e.title.toLowerCase().includes(searchWord.toLowerCase()))} />
-</div>
-  )
+;
 }
-
-export default App
